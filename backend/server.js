@@ -10,16 +10,9 @@ const { Pool } = require('pg');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const dbUrl = new URL(process.env.DATABASE_URL);
 
-console.log("DB host:", dbUrl.hostname);
-console.log("DB port:", dbUrl.port);
-console.log("DB username:", decodeURIComponent(dbUrl.username));
-console.log("DB password present:", dbUrl.password.length > 0);
-console.log(
-  "DB password length:",
-  decodeURIComponent(dbUrl.password).length
-);
+
+console.log("Database URL configured:", !!process.env.DATABASE_URL);
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
@@ -213,7 +206,7 @@ app.get('/api/news', async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`SkillGap backend running at http://localhost:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`SkillGap backend running on port ${PORT}`);
 });
 
