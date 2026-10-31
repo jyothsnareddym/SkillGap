@@ -12,7 +12,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Svg, { Circle, Line, Path, Polyline } from 'react-native-svg';
 
-const API_BASE = 'http://10.210.26.153:3000';
+const API_BASE_URL = 'https://skillgap-backend-fatp.onrender.com';
 const YEARS = [2020, 2021, 2022, 2023, 2024, 2025, 2026];
 
 type Job = {
@@ -145,7 +145,7 @@ export default function StatisticsScreen() {
 
     for (const query of searchQueries) {
       const response = await fetch(
-        `${API_BASE}/api/jobs?what=${encodeURIComponent(query)}`,
+        `${API_BASE_URL}/api/jobs?what=${encodeURIComponent(query)}`,
         { signal: controller.signal }
       );
 

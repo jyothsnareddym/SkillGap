@@ -14,7 +14,7 @@ import { useFocusEffect } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const PROFILE_KEY = '@skillgap_profile';
-const API_BASE_URL = 'http://10.210.26.153:3000';
+const API_BASE_URL = 'https://skillgap-backend-fatp.onrender.com';
 
 type Job = {
   title: string;

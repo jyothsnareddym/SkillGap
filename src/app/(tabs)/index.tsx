@@ -14,7 +14,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 // Use the same backend IP as your working Statistics screen.
-const API_BASE = 'http://10.210.26.153:3000';
+const API_BASE_URL = 'https://skillgap-backend-fatp.onrender.com';
 
 type NewsCategory = 'technology' | 'hiring' | 'layoffs' | 'skills';
 
@@ -102,7 +102,7 @@ const fetchNews = useCallback(
 
     try {
       const response = await fetch(
-        `${API_BASE}/api/news?category=${encodeURIComponent(category)}&_=${Date.now()}`,
+        `${API_BASE_URL}/api/news?category=${encodeURIComponent(category)}&_=${Date.now()}`,
         {
           headers: {
             'Cache-Control': 'no-cache',
